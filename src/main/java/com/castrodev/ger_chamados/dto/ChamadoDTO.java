@@ -6,11 +6,11 @@ import org.springframework.beans.BeanUtils;
 public class ChamadoDTO {
     private Long idChamado;
     private String titulo;
-    private String descicao;
+    private String descricao;
     private String nomeSolicitante;
     private String emailSolicitante;
     private Long dataAbertura;
-    private String statusChamado;
+    private Long statusChamado;
 
     public ChamadoDTO(Chamado chamado) {
         BeanUtils.copyProperties(chamado, this);
@@ -20,11 +20,11 @@ public class ChamadoDTO {
 
     }
 
-    public String getStatusChamado() {
+    public Long getStatusChamado() {
         return statusChamado;
     }
 
-    public void setStatusChamado(String statusChamado) {
+    public void setStatusChamado(Long statusChamado) {
         this.statusChamado = statusChamado;
     }
 
@@ -52,12 +52,12 @@ public class ChamadoDTO {
         this.nomeSolicitante = nomeSolicitante;
     }
 
-    public String getDescicao() {
-        return descicao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescicao(String descicao) {
-        this.descicao = descicao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getTitulo() {
