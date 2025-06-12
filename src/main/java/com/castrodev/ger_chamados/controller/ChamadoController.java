@@ -48,5 +48,10 @@ public class ChamadoController {
         return ResponseEntity.status(HttpStatus.OK).body(chamadoAtualizado);
     }
 
+    @DeleteMapping("/{idChamado}")
+    public ResponseEntity<Void> apagarChamado(@PathVariable Long idChamado){
+        chamadoService.excluirChamado(idChamado);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
 }

@@ -33,8 +33,8 @@ public class ChamadoService {
         chamadoRepository.save(chamado);
         return chamado;
     }
-    public void excluirChamado(ChamadoDTO chamadoDTO){
-
+    public void excluirChamado(Long idChamado){
+        chamadoRepository.deleteById(idChamado);
     }
 
     public ChamadoDTO atualizarChamado(ChamadoUpdateDTO chamadoUpdateDTO){
