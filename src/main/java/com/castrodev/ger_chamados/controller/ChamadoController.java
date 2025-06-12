@@ -2,6 +2,7 @@ package com.castrodev.ger_chamados.controller;
 
 import com.castrodev.ger_chamados.dto.ChamadoCreateDTO;
 import com.castrodev.ger_chamados.dto.ChamadoDTO;
+import com.castrodev.ger_chamados.dto.ChamadoUpdateDTO;
 import com.castrodev.ger_chamados.model.chamado.Chamado;
 import com.castrodev.ger_chamados.service.ChamadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,11 @@ public class ChamadoController {
         return ResponseEntity.status(HttpStatus.OK).body(chamadoCadastrado);
     }
 
-    //public void ResponseEntity<ChamadoDTO> editarChamado(){
-       // return ResponseEntity.status(HttpStatus.OK);
-   // }
+    @PutMapping("/atualizar")
+    public ResponseEntity<ChamadoDTO> atualizarChamado(@RequestBody ChamadoUpdateDTO chamadoUpdateDTO){
+        ChamadoDTO chamadoAtualizado = chamadoService.atualizarChamado(chamadoUpdateDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(chamadoAtualizado);
+    }
+
+
 }

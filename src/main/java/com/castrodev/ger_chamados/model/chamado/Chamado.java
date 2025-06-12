@@ -15,7 +15,9 @@ public class Chamado {
     @Column(name = "idchamado")
     private Long idChamado;
     private String titulo;
+
     private String descricao;
+
     @Column(name = "nomesolicitante")
     private String nomeSolicitante;
     @Column(name = "emailsolicitante")
@@ -37,6 +39,14 @@ public class Chamado {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getNomeSolicitante() {
