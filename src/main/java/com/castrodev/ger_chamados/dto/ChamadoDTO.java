@@ -1,5 +1,6 @@
 package com.castrodev.ger_chamados.dto;
 
+import com.castrodev.ger_chamados.StatusChamado;
 import com.castrodev.ger_chamados.model.chamado.Chamado;
 import org.springframework.beans.BeanUtils;
 
@@ -10,7 +11,7 @@ public class ChamadoDTO {
     private String nomeSolicitante;
     private String emailSolicitante;
     private Long dataAbertura;
-    private Long statusChamado;
+    private StatusChamado statusChamado;
 
     public ChamadoDTO(Chamado chamado) {
         BeanUtils.copyProperties(chamado, this);
@@ -20,11 +21,11 @@ public class ChamadoDTO {
 
     }
 
-    public Long getStatusChamado() {
+    public StatusChamado getStatusChamado() {
         return statusChamado;
     }
 
-    public void setStatusChamado(Long statusChamado) {
+    public void setStatusChamado(StatusChamado statusChamado) {
         this.statusChamado = statusChamado;
     }
 

@@ -1,5 +1,6 @@
 package com.castrodev.ger_chamados.dto;
 
+import com.castrodev.ger_chamados.StatusChamado;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.Setter;
 public class ChamadoUpdateDTO {
     private Long idChamado;
     private String descricao;
-    private Long statusChamado;
+    private StatusChamado statusChamado;
 
     public Long getIdChamado() {
         return idChamado;
@@ -30,11 +31,11 @@ public class ChamadoUpdateDTO {
         this.descricao = descricao;
     }
 
-    public Long getStatusChamado() {
+    public StatusChamado getStatusChamado() {
         return statusChamado;
     }
 
-    public void setStatusChamado(Long statusChamado) {
+    public void setStatusChamado(StatusChamado statusChamado) {
         this.statusChamado = statusChamado;
     }
 }

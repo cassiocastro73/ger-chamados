@@ -1,5 +1,6 @@
 package com.castrodev.ger_chamados.model.chamado;
 
+import com.castrodev.ger_chamados.StatusChamado;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,8 +27,9 @@ public class Chamado {
     @Column(name = "dataabertura")
     private Long dataAbertura;
 
+    @Enumerated
     @Column(name = "statuschamado")
-    private Long statusChamado;
+    private StatusChamado statusChamado;
 
     public Long getIdChamado() {
         return idChamado;
@@ -73,11 +75,11 @@ public class Chamado {
         this.dataAbertura = dataAbertura;
     }
 
-    public Long getStatusChamado() {
+    public StatusChamado getStatusChamado() {
         return statusChamado;
     }
 
-    public void setStatusChamado(Long statusChamado) {
+    public void setStatusChamado(StatusChamado statusChamado) {
         this.statusChamado = statusChamado;
     }
 }

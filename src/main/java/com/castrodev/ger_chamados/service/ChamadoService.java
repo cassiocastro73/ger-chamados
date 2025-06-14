@@ -1,5 +1,6 @@
 package com.castrodev.ger_chamados.service;
 
+import com.castrodev.ger_chamados.StatusChamado;
 import com.castrodev.ger_chamados.dto.ChamadoCreateDTO;
 import com.castrodev.ger_chamados.dto.ChamadoDTO;
 import com.castrodev.ger_chamados.dto.ChamadoUpdateDTO;
@@ -30,6 +31,7 @@ public class ChamadoService {
     public Chamado criarChamado(ChamadoCreateDTO chamadoCreateDTO){
         Chamado chamado = new Chamado();
         BeanUtils.copyProperties(chamadoCreateDTO, chamado);
+        chamado.setStatusChamado(StatusChamado.ABERTO);
         chamadoRepository.save(chamado);
         return chamado;
     }

@@ -11,5 +11,4 @@ public class ChamadoCreateDTO {
     private String nomeSolicitante;
     private String emailSolicitante;
     private Long dataAbertura;
-    private Long statusChamado;
 }
