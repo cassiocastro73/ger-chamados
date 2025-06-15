@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table
 @Getter
@@ -25,7 +27,7 @@ public class Chamado {
     private String emailSolicitante;
 
     @Column(name = "dataabertura")
-    private Long dataAbertura;
+    private LocalDateTime dataAbertura;
 
     @Enumerated
     @Column(name = "statuschamado")
@@ -67,11 +69,11 @@ public class Chamado {
         this.emailSolicitante = emailSolicitante;
     }
 
-    public Long getDataAbertura() {
+    public LocalDateTime getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(Long dataAbertura) {
+    public void setDataAbertura(LocalDateTime dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 

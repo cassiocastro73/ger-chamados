@@ -4,13 +4,16 @@ import com.castrodev.ger_chamados.StatusChamado;
 import com.castrodev.ger_chamados.model.chamado.Chamado;
 import org.springframework.beans.BeanUtils;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class ChamadoDTO {
     private Long idChamado;
     private String titulo;
     private String descricao;
     private String nomeSolicitante;
     private String emailSolicitante;
-    private Long dataAbertura;
+    private LocalDateTime dataAbertura;
     private StatusChamado statusChamado;
 
     public ChamadoDTO(Chamado chamado) {
@@ -29,11 +32,11 @@ public class ChamadoDTO {
         this.statusChamado = statusChamado;
     }
 
-    public Long getDataAbertura() {
+    public LocalDateTime getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(Long dataAbertura) {
+    public void setDataAbertura(LocalDateTime dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 

@@ -1,5 +1,6 @@
 package com.castrodev.ger_chamados.controller;
 
+import com.castrodev.ger_chamados.StatusChamado;
 import com.castrodev.ger_chamados.dto.ChamadoCreateDTO;
 import com.castrodev.ger_chamados.dto.ChamadoDTO;
 import com.castrodev.ger_chamados.dto.ChamadoUpdateDTO;
@@ -22,10 +23,15 @@ public class ChamadoController {
     ChamadoService chamadoService;
 
     @GetMapping
-    public ResponseEntity<List<ChamadoDTO>> buscarTodosChamados(){
-        //service qeu faz a chamada ao repository retornos http com a resposta
-        List<ChamadoDTO> chamados = chamadoService.buscarTodos();
-        return ResponseEntity.status(HttpStatus.OK).body(chamados);
+    public ResponseEntity<List<ChamadoDTO>> buscarChamados(@RequestParam(required = false)StatusChamado statusChamado){
+        if(statusChamado != null){
+            List<ChamadoDTO> chamados = chamadoService.buscarPorStatus(statusChamado);
+            return ResponseEntity.status(HttpStatus.OK).body(chamados);
+        }
+        else{
+            List<ChamadoDTO> chamados = chamadoService.buscarTodos();
+            return ResponseEntity.status(HttpStatus.OK).body(chamados);
+        }
     }
 
     @GetMapping("/{idChamado}")

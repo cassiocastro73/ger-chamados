@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,7 @@ public class ChamadoService {
         Chamado chamado = new Chamado();
         BeanUtils.copyProperties(chamadoCreateDTO, chamado);
         chamado.setStatusChamado(StatusChamado.ABERTO);
+        chamado.setDataAbertura(LocalDateTime.now());
         chamadoRepository.save(chamado);
         return chamado;
     }
@@ -49,4 +51,7 @@ public class ChamadoService {
         return new ChamadoDTO(chamado);
     }
 
+    public List<ChamadoDTO> buscarPorStatus(StatusChamado status) {
+        return chamadoRepository.findByStatusChamado(status);
+    }
 }
