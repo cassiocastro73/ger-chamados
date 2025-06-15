@@ -57,7 +57,7 @@ docker run --name postgres-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=pos
 docker run --name ger-chamados-app --link postgres-db:chamados -p 8080:8080 ger-chamados
 ```
 
-##📄 Documentação da API
+## 📄 Documentação da API
 A documentação interativa da API está disponível via Swagger UI:
 ```
 📎 http://localhost:8080/swagger-ui.html
