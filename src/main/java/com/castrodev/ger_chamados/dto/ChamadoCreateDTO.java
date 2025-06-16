@@ -1,5 +1,7 @@
 package com.castrodev.ger_chamados.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,9 +10,14 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class ChamadoCreateDTO {
+    @NotBlank(message = "O título é obrigatório")
     private String titulo;
+    @NotBlank(message = "A descrição é obrigatório")
     private String descricao;
+    @NotBlank(message = "O nome do solicitante é obrigatório")
     private String nomeSolicitante;
+    @NotBlank(message = "O e-mail do solicitante é obrigatório")
+    @Email(message = "O e-mail do solicitante deve ser válido")
     private String emailSolicitante;
 
     public ChamadoCreateDTO(String titulo, String descricao, String nomeSolicitante, String emailSolicitante) {

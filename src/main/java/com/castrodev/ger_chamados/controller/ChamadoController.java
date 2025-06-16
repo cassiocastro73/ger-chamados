@@ -6,6 +6,7 @@ import com.castrodev.ger_chamados.dto.ChamadoDTO;
 import com.castrodev.ger_chamados.dto.ChamadoUpdateDTO;
 import com.castrodev.ger_chamados.model.chamado.Chamado;
 import com.castrodev.ger_chamados.service.ChamadoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class ChamadoController {
     }
 
     @GetMapping("/{idChamado}")
-    public ResponseEntity<ChamadoDTO> buscarChamado(@PathVariable Long idChamado){
+    public ResponseEntity<ChamadoDTO> detalharChamado(@PathVariable Long idChamado){
         //service qeu faz a chamada ao repository
         Chamado chamado = chamadoService.buscarPorId(idChamado);
         ChamadoDTO chamadoDto = new ChamadoDTO(chamado);
@@ -43,7 +44,7 @@ public class ChamadoController {
     }
 
     @PostMapping("/novo-chamado")
-    public ResponseEntity<ChamadoDTO> criarNovoChamado(@RequestBody ChamadoCreateDTO chamadoCreateDTO){
+    public ResponseEntity<ChamadoDTO> criarNovoChamado(@RequestBody @Valid ChamadoCreateDTO chamadoCreateDTO){
         ChamadoDTO chamadoCadastrado = new ChamadoDTO(chamadoService.criarChamado(chamadoCreateDTO));
         return ResponseEntity.status(HttpStatus.OK).body(chamadoCadastrado);
     }
