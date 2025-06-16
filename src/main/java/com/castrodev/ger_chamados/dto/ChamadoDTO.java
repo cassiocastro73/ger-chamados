@@ -5,7 +5,6 @@ import com.castrodev.ger_chamados.model.chamado.Chamado;
 import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ChamadoDTO {
     private Long idChamado;

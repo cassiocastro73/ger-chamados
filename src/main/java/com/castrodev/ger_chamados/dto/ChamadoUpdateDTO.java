@@ -1,7 +1,6 @@
 package com.castrodev.ger_chamados.dto;
 
 import com.castrodev.ger_chamados.StatusChamado;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
