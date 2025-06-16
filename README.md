@@ -18,13 +18,13 @@ O projeto **ger-chamados** tem como objetivo oferecer uma API REST para controle
 
 ## 📚 Endpoints da API
 
-| Método HTTP | Endpoint                       | Descrição                                                                 |
-|-------------|--------------------------------|--------------------------------------------------------------------------|
-| `PUT`       | `/chamados/atualizar`          | Atualiza o status de um chamado e, opcionalmente, a descrição.           |
-| `POST`      | `/chamados/novo-chamado`       | Cria um novo chamado.                                                    |
-| `GET`       | `/chamados`                    | Lista todos os chamados.                                                 |
-| `GET`       | `/chamados/{idChamado}`        | Retorna os detalhes de um chamado específico pelo ID.                    |
-| `DELETE`    | `/chamados/{idChamado}`        | Remove um chamado específico pelo ID.                                    |
+| Método HTTP | Endpoint                       | Descrição                                                        |
+|-------------|--------------------------------|------------------------------------------------------------------|
+| `PUT`       | `/chamados/atualizar`          | Atualiza o status de um chamado e, opcionalmente, a descrição.   |
+| `POST`      | `/chamados/novo-chamado`       | Cria um novo chamado.                                            |
+| `GET`       | `/chamados`                    | Lista todos os chamados. Pode ser filtrado por Status do chamado |
+| `GET`       | `/chamados/{idChamado}`        | Retorna os detalhes de um chamado específico pelo ID.            |
+| `DELETE`    | `/chamados/{idChamado}`        | Remove um chamado específico pelo ID.                            |
 
 > ℹ️ Os endpoints estão disponíveis por padrão em: `http://localhost:8080`
 
@@ -38,11 +38,12 @@ O projeto **ger-chamados** tem como objetivo oferecer uma API REST para controle
    cd ger-chamados
 ```
 
-2. **Construa a imagem Docker da aplicação:**
+2. **Faça o build e construa a imagem Docker da aplicação:**
 ```
+./mvnw clean package -DskipTests
 docker build -t ger-chamados .
 ```
-3. **Suba os containers com Docker Compose (caso exista):**
+3. **Suba os containers com Docker Compose:**
 ```
 docker-compose up
 ```
