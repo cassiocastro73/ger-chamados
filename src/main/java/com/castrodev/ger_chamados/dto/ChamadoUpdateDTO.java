@@ -8,12 +8,17 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class ChamadoUpdateDTO {
     private Long idChamado;
     private String descricao;
     private StatusChamado statusChamado;
+
+    public ChamadoUpdateDTO(Long idChamado, String descricao, StatusChamado statusChamado) {
+        this.idChamado = idChamado;
+        this.descricao = descricao;
+        this.statusChamado = statusChamado;
+    }
 
     public Long getIdChamado() {
         return idChamado;

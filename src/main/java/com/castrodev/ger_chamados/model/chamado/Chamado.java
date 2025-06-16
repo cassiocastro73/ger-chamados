@@ -2,7 +2,9 @@ package com.castrodev.ger_chamados.model.chamado;
 
 import com.castrodev.ger_chamados.StatusChamado;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,7 @@ import java.time.LocalDateTime;
 @Table
 @Getter
 @Setter
+@AllArgsConstructor
 public class Chamado {
 
     @Id
@@ -32,6 +35,21 @@ public class Chamado {
     @Enumerated
     @Column(name = "statuschamado")
     private StatusChamado statusChamado;
+
+    //Construtor para testes
+    public Chamado(Long idChamado, String titulo, String descricao, String nomeSolicitante, String emailSolicitante, StatusChamado status, LocalDateTime dataAbertura) {
+        this.idChamado = idChamado;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.nomeSolicitante = nomeSolicitante;
+        this.emailSolicitante = emailSolicitante;
+        this.statusChamado = status;
+        this.dataAbertura = dataAbertura;
+    }
+
+    public Chamado(){
+
+    }
 
     public Long getIdChamado() {
         return idChamado;
