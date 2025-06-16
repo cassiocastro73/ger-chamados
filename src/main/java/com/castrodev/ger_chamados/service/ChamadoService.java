@@ -9,6 +9,7 @@ import com.castrodev.ger_chamados.repository.ChamadoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ public class ChamadoService {
     ChamadoRepository chamadoRepository;
 
     public List<ChamadoDTO> buscarTodos(){
-        return chamadoRepository.findAll().stream()
+        return chamadoRepository.findAll(Sort.by(Sort.Direction.DESC, "dataAbertura")).stream()
                 .map(ChamadoDTO::new).collect(Collectors.toList());
     }
 
