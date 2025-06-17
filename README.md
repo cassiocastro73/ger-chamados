@@ -3,6 +3,7 @@
 Sistema de gerenciamento de chamados desenvolvido com Java e Spring Boot, utilizando PostgreSQL como banco de dados, Swagger para documentação de API e Docker para conteinerização.
 
 ---
+Vídeo de demonstração usando Swagger UI: https://youtu.be/euEjh_AeyXg
 
 ## 🚀 Apresentação
 
@@ -13,7 +14,7 @@ O projeto **ger-chamados** tem como objetivo oferecer uma API REST para controle
 - **PostgreSQL**: Banco de dados relacional utilizado para armazenar os chamados.
 - **Swagger UI (Springdoc OpenAPI)**: Utilizado para gerar documentação interativa da API.
 - **Docker**: Plataforma de conteinerização para facilitar o deploy e execução da aplicação.
-
+- **JUnit 5**: Ferramenta para a construção de testes unitários das principais funcionalidades. 
 ---
 
 ## 📚 Endpoints da API
@@ -32,30 +33,51 @@ O projeto **ger-chamados** tem como objetivo oferecer uma API REST para controle
 
 ## 🐳 Como executar a aplicação com Docker
 
+### Pré-requisitos
+
+- Java 17
+- Maven 4
+
+### Passo a passo
+
 1. **Clone o repositório:**
-```
-   git clone https://github.com/cassiocastro73/ger-chamados.git
-   cd ger-chamados
+```bash
+# Clona o repoitório
+$ git clone https://github.com/cassiocastro73/ger-chamados.git
+
+#Entra no diretório do projeto
+$ cd ger-chamados
 ```
 
-2. **Faça o build e construa a imagem Docker da aplicação:**
+2. **Faça o build da aplicação**
+```bash
+#Realiza o build da aplicação Java
+$ ./mvnw clean package -DskipTests
 ```
-./mvnw clean package -DskipTests
-docker build -t ger-chamados .
+
+3. **Construa a imagem Docker da aplicação:**
+```bash
+$ docker build -t ger-chamados .
 ```
+
 3. **Suba os containers com Docker Compose:**
+```bash 
+$ docker-compose up
 ```
-docker-compose up
+ou
+```bash 
+$ docker compose up --build
 ```
+
 **Ou execute manualmente os containers:**
 
 # Subir banco de dados PostgreSQL
-```
-docker run --name postgres-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=chamados -p 5432:5432 -d postgres
+```bash 
+$ docker run --name postgres-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=chamados -p 5432:5432 -d postgres
 ```
 # Subir a aplicação
-```
-docker run --name spring_app --link postgres-db:chamados -p 8080:8080 ger-chamados
+```bash
+$ docker run --name spring_app --link postgres-db:chamados -p 8080:8080 ger-chamados
 ```
 
 ## 📄 Documentação da API
