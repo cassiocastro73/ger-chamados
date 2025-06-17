@@ -37,6 +37,8 @@ O projeto **ger-chamados** tem como objetivo oferecer uma API REST para controle
 
 - Java 17
 - Maven 4
+- Docker
+- Docker Compose
 
 ### Passo a passo
 
